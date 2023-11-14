@@ -55,18 +55,18 @@ const {createApp} = Vue
         //        return parseInt(aI.value);
         //    },1000)
         //}
-        loop: function(){
+        //loop: function(){
 
-            console.log(this.aI, this.slides.length);
+            //console.log(this.aI, this.slides.length);
             
-            if(this.aI > this.slides.length - 1){
-                this.aI === parseInt("0")
-            }
-            this.aI++
-            }, 
-        stop: function(){
-            clearInterval(this.loop)
-        }
+            //if(this.aI > this.slides.length - 1){
+            //    this.aI === parseInt("0")
+            //}
+            //this.aI++
+            //}, 
+        //stop: function(){
+            //clearInterval(this.loop)
+        //}
     },
     mounted(){
         this.loop()
