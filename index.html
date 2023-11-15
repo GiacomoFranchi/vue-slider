@@ -10,10 +10,10 @@
 </head>
 <body>
     <div id="app">
-        <div class="container">
-            <div class="slider-wrapper" tabindex="0">
-                <div class="item" @mouseover="stop" @mouseleave="loop">
-                    <img :src="slides[aI].image" alt="img" />
+        <div class="container" @keyup.up="prev" @keyup.down="next" >
+            <div class="slider-wrapper" tabindex="0" @mouseover="stop" @mouseleave="start">
+                <div class="item">
+                    <img :src="slides[aI].image" :alt="slides[aI].title" />
                     <div class="text">
                         <h3>{{slides[aI].title}}</h3>
                         <p>{{slides[aI].text}}</p>
@@ -22,8 +22,8 @@
                 <div class="thumbs">
                     <div class="prev" @click="prev"></div>
                     <div class="next" @click="next"></div>
-                    <div class="thumb">
-                        <img v-for="(img, index) in slides" :src="slides[index].image" alt="img" :class="index === aI ? 'active' : ''"/>
+                    <div v-for="(slide, index) in slides" :key="index" class="thumb" :class="index === aI ? 'active' : ''" @click="show(index)">
+                        <img :src="slides[index].image" alt="img"/>
                     </div>
                 </div>
             </div>

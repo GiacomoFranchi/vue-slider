@@ -31,8 +31,13 @@ const {createApp} = Vue
             }
             ],
             aI: 0,
+            timer: null
         }
     },
+    created(){
+       this.timer= setInterval(this.next, 2000)
+    },
+
     methods: {
         next: function(){
             if(this.aI === this.slides.length - 1) {
@@ -48,28 +53,17 @@ const {createApp} = Vue
                 this.aI--;
             }
         },
-        //loop: function(aI){
-        //    setInterval(function(){
-        //        aI++;
-        //        console.log(parseInt(aI.value));
-        //        return parseInt(aI.value);
-        //    },1000)
-        //}
-        //loop: function(){
-
-            //console.log(this.aI, this.slides.length);
-            
-            //if(this.aI > this.slides.length - 1){
-            //    this.aI === parseInt("0")
-            //}
-            //this.aI++
-            //}, 
-        //stop: function(){
-            //clearInterval(this.loop)
-        //}
+        show: function(clickedIndex){
+            this.aI = clickedIndex
+        }, 
+        stop: function(){
+            clearInterval(this.timer)
+            this.timer = null;
+        },
+        start: function(){
+            this.timer = setInterval(this.next, 2000);
+        },
     },
-    mounted(){
-        this.loop()
-    }
+
 
 }).mount("#app")

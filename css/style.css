@@ -39,9 +39,8 @@
 
 .thumbs {
     width: 20%;
-    height: 284px; /*?????????*/
+    height: 300px;
     position: relative;;
-    display:flex;
 }
 
 .thumb {
